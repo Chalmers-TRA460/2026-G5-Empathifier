@@ -14,11 +14,11 @@
 
 | Field               | Value                                      |
 |---------------------|--------------------------------------------|
-| **Group**           | TRA460_Group_X                             |
+| **Group**           | TRA460_Group_5                             |
 | **Version**         | 1.0                                        |
 | **Date**            | YYYY-MM-DD                                 |
-| **Clinical Mentor** | [Name, Title, Affiliation]                 |
-| **Group Members**   | [Name (Program), Name (Program), ...]      |
+| **Clinical Mentor** | [David Sundemo, MD PHD, Sahlgrenska]                 |
+| **Group Members**   | [Johannes Lindqvist (MPCSC), Daniel Krämer (MPCAS), Abigail Kruegle (MPCAS), Yuxuan Zhong (MPCAS)]      |
 
 ---
 
