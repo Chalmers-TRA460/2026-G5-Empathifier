@@ -143,6 +143,18 @@ A further clinical safety risk involves the potential for AI-generated content t
   - What gap remains that your project could fill?
 -->
 
+<!--
+  Notes for this section:
+  - Clinical tools: 
+    - similar tools have been implemented at other healthcare facilities, in early stages. It's a moment where this problem is actively being recognized, but portals like 1177 do not have a tool available
+    - clinicians could prompt secured LLMs on their own to help with drafting. This has a fairly high burden on the clinician to do this prompting,  chatting with an AI agent, and final review. The ideal solution would be simpler.
+  - What gap remains that your project could fill?
+    - more simple solution that minimized the amount of LLM-generated message while maximizing empathy. Easy to use, fast, and adjustable to different types of patients
+  
+-->
+
+
+
 ### 1.4 Success Metrics [Recommended]
 
 <!--
