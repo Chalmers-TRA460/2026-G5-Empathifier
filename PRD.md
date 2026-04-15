@@ -16,7 +16,7 @@
 |---------------------|--------------------------------------------|
 | **Group**           | TRA460_Group_5                             |
 | **Version**         | 1.0                                        |
-| **Date**            | YYYY-MM-DD                                 |
+| **Date**            | 2026-04-15                                |
 | **Clinical Mentor** | [David Sundemo, MD PHD, Sahlgrenska]                 |
 | **Group Members**   | [Johannes Lindqvist (MPCSC), Daniel Krämer (MPCAS), Abigail Kruegle (MPCAS), Yuxuan Zhong (MPCAS)]      |
 
@@ -39,10 +39,9 @@
            that reduces time-to-treatment for recurrent events."
 -->
 
-> **A way to** [verb/action]
-> **for** [specific population and/or clinical setting]
-> **that** [desired outcome or value delivered].
+A way to increase the empathy of clinician messages for patients *who use written communication* in order to improve patient satisfaction scores.   
 
+*Note from Abby: the part between asterisks could be removed or added depending on how specific we want the population part of the statement to sound.
 ---
 
 ### 1.1 Clinical Context & Background [Required]
