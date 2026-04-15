@@ -39,9 +39,9 @@
            that reduces time-to-treatment for recurrent events."
 -->
 
-A way to increase the empathy of clinician messages for patients ~who use written communication~ in order to improve patient satisfaction scores.   
+A way to increase the empathy of clinician messages for patients who use written communication in order to improve patient satisfaction scores.   
 
-Note from Abby: the part between tildes could be removed or added depending on how specific we want the population part of the statement to sound.
+Note from Abby: "who use written communication" could be removed or kept depending on how specific we want the population part of the statement to sound.
 ---
 
 ### 1.1 Clinical Context & Background [Required]
