@@ -114,6 +114,24 @@ Since the development of secure healthcare portals, online messaging has become 
   examples are more valuable than generalizations.
 -->
 
+<!--
+Abby's notes, maybe we can add to this and use it as an input to Spezi to help write this section:
+  - met with a clinician who frequently needs to respond to patient messages, but he sees that time constraints, stress, and cognitive load often prevent him and his colleagues, physiscians and nurses, from responding with adequately emotionally-attuned messages
+  - If he does decide to write a very intentional message, it can take up a lot of his time, which either eats away at his professional capacity or his personal time
+  - Currently, most clinicians he knows do not use LLMs to help write their messages. He referenced a study that we can find later. Clinicians are either putting in lots of time, or writing messages that patients may find unsatisfactory
+  - There is a risk that if AI is used to solve this problem, it may feel inauthentic to patients. We believe we have an obligation to share with patients is AI is used to craft the clinicians' responses. We want to give the clinician ownership over the message, and minimize the amount of LLM-generated text while maximizing the impact of the tool. 
+  - It's also a long-term risk that if clinicians offload too much of the response-generation to AI, they will need to spend more time in the future remembering a case or connecting with a patient
+  - Another risk is that medical information may become distorted or inaccurate after being processed by an LLM. There will be a clinician always having the final say of a message, but to minimize mistakes and burden on the clinician, medical information must be preserved completely.
+-->
+
+In a conversation with David Sundemo, a clinician who regularly responds to patient portal messages, he indicated that time constraints, workplace stress, and cognitive load can make it difficult for clinicians to craft the emotionally-attuned responses they know their patients need. When doctor or nurse does invest the effort to write a thoughtful, intentional message, it can take significant time, cutting into either their clinical capacity or their personal life. This creates an ultimatum for the healthcare provider: spend too much time, or send a message that falls short. Notably, David observed that many physicians in Sweden are not currently using LLMs to bridge this gap, leaving the problem largely unaddressed in practice.
+
+AI-driven tools could provide an opportunity to draft better messages in less time, with the risk that patients may perceive AI-generated messages as inauthentic. We believe there is an ethical obligation to be transparent with patients when AI has played a role in drafting a clinician's response. Accordingly, the tool should be designed to preserve clinician ownership of the message — minimizing the volume of AI-generated text while maximizing its impact on tone and clarity. There is also a longer-term risk to consider: if clinicians offload too much of the response-generation process to AI, they may need to spend more time in the future remembering a patient's case or connecting with them on a personal level.
+
+A further clinical safety risk involves the potential for AI-generated content to distort or obscure the clinician's intended medical information. Large language models can hallucinate, and even when they do not, subtle rephrasing of clinical guidance can change its meaning in ways that are can impact patient safety. A message that inadvertently alters a medication instruction, softens a warning, or introduces ambiguity around a diagnosis could cause real harm. This risk must be mitigated by a core design principle to treat the clinician's medical input as authoritative and immutable, with AI influence scoped strictly to tone, clarity, and empathy, and never to clinical substance. Any version of the message presented to the clinician for review should make it easy to verify that the medical content remains exactly as intended.
+
+
+
 ### 1.3 Existing Solutions & Gaps [Required]
 
 <!--
