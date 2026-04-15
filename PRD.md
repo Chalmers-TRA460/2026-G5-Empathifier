@@ -115,7 +115,8 @@ Since the development of secure healthcare portals, online messaging has become 
 -->
 
 <!--
-Abby's notes, maybe we can add to this and use it as an input to Spezi to help write this section:
+Abby's notes, used as an input to Spezi to help write the actual section. Please add notes so we can re-prompt for different content, or edit/add/delete the current section!
+
   - met with a clinician who frequently needs to respond to patient messages, but he sees that time constraints, stress, and cognitive load often prevent him and his colleagues, physiscians and nurses, from responding with adequately emotionally-attuned messages
   - If he does decide to write a very intentional message, it can take up a lot of his time, which either eats away at his professional capacity or his personal time
   - Currently, most clinicians he knows do not use LLMs to help write their messages. He referenced a study that we can find later. Clinicians are either putting in lots of time, or writing messages that patients may find unsatisfactory
@@ -182,6 +183,8 @@ A further clinical safety risk involves the potential for AI-generated content t
   Be specific: "Cardiac nurses in outpatient clinics" not just "nurses."
 -->
 
+Physicians and nurses who communicate with patients about medical matters using an online patient portal.
+
 ### 2.2 Other Stakeholders [Required]
 
 <!--
@@ -191,6 +194,9 @@ A further clinical safety risk involves the potential for AI-generated content t
   Consider: patients, caregivers, administrators, IT departments,
   payers/insurers, regulators, clinical champions, etc.
 -->
+
+Patients and their caregivers are affected by the resulting clinician responses. 
+Hospital administrators are affected by changes in patient satisfaction as a result of the tool.
 
 ### 2.3 User Journey — Current State [Recommended]
 
