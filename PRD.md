@@ -39,10 +39,48 @@
            that reduces time-to-treatment for recurrent events."
 -->
 
-A way to increase the empathy of clinician messages for patients who use written communication in order to improve patient satisfaction scores.   
+A way to increase the empathy of clinician responses to patient portal messages for adults in order to improve patient satisfaction.
 
 <!--
-  Note from Abby: "who use written communication" could be removed or kept depending on how specific we want the population part of the statement to sound.
+Critique from Claude: 
+
+Here's an honest critical review of where you stand.
+
+  ---
+  Strengths
+
+  - Solution-free: "increase empathy" describes the change needed without naming any technology — that's disciplined and correct.
+  - Logical flow: problem → population → outcome tells a coherent story. A reader can follow the reasoning without explanation.
+  - Outcome is grounded in real decision-maker priorities: public health systems actively track patient satisfaction scores — this isn't a hypothetical metric.
+  - Patient portal specificity: narrowing from "all written communication" to patient portal messages gives the problem a clear, bounded context.
+
+  ---
+  Weaknesses
+
+  1. "Empathy" is abstract — it's not yet defined in a way that could be measured or operationalized. What does an empathetic message look like versus a cold one? Without that definition,
+  it's hard to know if your tool is working.
+  2. The outcome lacks a specific metric and threshold — "improve patient satisfaction scores" tells us the direction but not the magnitude. A study cannot be designed around this yet.
+  This is your most important gap to close.
+  3. The population may be too broad to show an effect — "adults using patient portals" is a heterogeneous group. A 28-year-old managing a minor infection and a 65-year-old with heart
+  failure may respond very differently. A broader population requires a larger, more expensive study to detect a signal.
+  4. The safety constraint isn't captured — you mentioned that clinical accuracy must be preserved. That's important context missing from the statement.
+
+  ---
+  Skipped-step risks
+
+  - We didn't explore existing solutions — are there communication training programs, templating tools, or style guides already in use? If so, what's their limitation? Your need statement
+  is stronger if you can articulate why current approaches fail.
+  - We didn't explore the upstream angle — could the problem be prevented earlier, e.g., through clinician communication training or patient onboarding that sets expectations for written
+  tone?
+
+  ---
+  Recommended next actions
+
+  1. Interview 3–5 public health system administrators — ask what patient satisfaction metric they watch most closely, what a meaningful improvement looks like, and whether they're already
+   trying to solve this.
+  2. Interview 3–5 clinicians — ask what makes portal messaging hard, whether they've received complaints about tone, and what they've tried.
+  3. Search for existing tools and studies — establish what's already been tried and why it's insufficient. This is the evidence base for your unmet need.
+
 -->
 
 ---
@@ -57,6 +95,8 @@ A way to increase the empathy of clinician messages for patients who use written
   - How significant is this problem? (incidence, prevalence, burden)
   - Why does it matter — clinically, economically, or humanly?
 -->
+
+Since the development of secure healthcare portals, online messaging has become a primary channel for patients to communicate medical concerns, questions, or administrative requests. As the volume and pace of messages increase, clinicians have found a tension between clinical efficiency and compassionate communication. In order to address all of their messages, clinicians often default to brief, clinical language, which is technically accurate, but can leave patients feeling dismissed, misunderstood, or uncared for. For many patients, especially patients with chronic or multiple conditions who rely on frequent written communication, the tone of the messages directly shapes their perception of whether their clinician cares about them. Impersonal or abrupt responses are a driver of patient dissatisfaction, formal complaints, and voluntary disenrollment from care relationships. Clinically, it is important that a patient feels cared for by their clinician to maintain healthy trust and openness. On a human level, it is critical that patients feel cared for throughout their entire healthcare journey, during which they may feel medically or emotionally vulnerable. A tool to ensure that online clinician-written communication is caring and empathetic is a simple way optimize this portion of a patient's healthcare journey.
 
 ### 1.2 Key Clinical Insights [Required]
 
