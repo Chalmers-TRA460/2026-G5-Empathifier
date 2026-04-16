@@ -172,6 +172,8 @@ Additionally, the lack of simple integrations with systems like 1177 likely redu
 
 - [e.g., Time-to-intervention reduced by X%]
 - [e.g., Nurse documentation burden reduced from Y to Z minutes/day]
+- Factual Accuracy Retention Rate: ≥X% fact consistency between rewritten and original messages.
+- Reduction in Follow-up Queries：Whether the rate of follow-up questions within 48 hours of receiving a response has decreased by X%. (Clear and empathetic responses typically alleviate patient anxiety and thereby reduce follow-up inquiries.)
 
 
 Measuring patient satisfaction is difficult because there is no clear, standardized metric for it. Currently, doctors receive feedback through reports on 1177, or patients request a different doctor due to how the doctor responds. If enough doctors use this service, it would be possible to compare the average number of reports—or the average number of patients switching doctors—between those who use the service and those who do not.
@@ -232,7 +234,7 @@ New: Patient texts doctor. Doctor writes a short version, sends it to out servic
 
   Keep it directional. You will refine this throughout the course.
 -->
-
+Our vision is to build an communication assistant.It not only cuts down the time doctors spend on routine patient message responses and makes their replies more empathetic and humanized, but also crucially ensures the complete retention of all critical medical information. For patients, this means access to accurate medical information alongside a genuine sense of being understood and respected, which in turn reduces unnecessary anxiety and repetitive follow-up inquiries. The end result is a more efficient and harmonious doctor-patient communication dynamic.
 Create a service that helps doctors write messages that increase therapeutic outcomes without misleading or lying to the patient. The service should act as an assistant that supports doctors in formulating their own responses, rather than functioning as a chatbot that answers all patient questions automatically. It should be designed and used in a morally responsible way.
 
 ---
