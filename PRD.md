@@ -235,7 +235,7 @@ New: Patient texts doctor. Doctor writes a short version, sends it to out servic
   Keep it directional. You will refine this throughout the course.
 -->
 Our vision is to build an communication assistant.It not only cuts down the time doctors spend on routine patient message responses and makes their replies more empathetic and humanized, but also crucially ensures the complete retention of all critical medical information. For patients, this means access to accurate medical information alongside a genuine sense of being understood and respected, which in turn reduces unnecessary anxiety and repetitive follow-up inquiries. The end result is a more efficient and harmonious doctor-patient communication dynamic.
-Create a service that helps doctors write messages that increase therapeutic outcomes without misleading or lying to the patient. The service should act as an assistant that supports doctors in formulating their own responses, rather than functioning as a chatbot that answers all patient questions automatically. It should be designed and used in a morally responsible way.
+The service should act as an assistant that supports doctors in formulating their own responses, rather than functioning as a chatbot that answers all patient questions automatically. It should be designed and used in a morally responsible way.
 
 ---
 
