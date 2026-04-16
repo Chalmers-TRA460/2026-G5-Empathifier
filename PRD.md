@@ -1,4 +1,4 @@
-# [Project Name] [Required]
+# [G5-Empathifier] [Required]
 ## Product Requirements Document
 
 > **TRA460: Digital Health Implementation** | Chalmers University of Technology
@@ -125,7 +125,7 @@ Abby's notes, used as an input to Spezi to help write the actual section. Please
   - Another risk is that medical information may become distorted or inaccurate after being processed by an LLM. There will be a clinician always having the final say of a message, but to minimize mistakes and burden on the clinician, medical information must be preserved completely.
 -->
 
-In a conversation with David Sundemo, a clinician who regularly responds to patient portal messages, he indicated that time constraints, workplace stress, and cognitive load can make it difficult for clinicians to craft the emotionally-attuned responses they know their patients need. When doctor or nurse does invest the effort to write a thoughtful, intentional message, it can take significant time, cutting into either their clinical capacity or their personal life. This creates an ultimatum for the healthcare provider: spend too much time, or send a message that falls short. Notably, David observed that many physicians in Sweden are not currently using LLMs to bridge this gap, leaving the problem largely unaddressed in practice.
+In a conversation with David Sundemo, a clinician who regularly responds to patient portal messages, he indicated that time constraints, workplace stress, and cognitive load can make it difficult for clinicians to craft the emotionally-attuned responses they know their patients need. When doctor or nurse does invest the effort to write a thoughtful, intentional message, it can take significant time, cutting into either their clinical capacity or their personal life. This creates an ultimatum for the healthcare provider: spend too much time, or send a message that falls short. Notably, David observed that many physicians in Sweden are not currently using LLMs to bridge this gap, leaving the problem largely unaddressed in practice. He mentioned a survey where 8% of doctors use LLMs for adm. tasks. 
 
 AI-driven tools could provide an opportunity to draft better messages in less time, with the risk that patients may perceive AI-generated messages as inauthentic. We believe there is an ethical obligation to be transparent with patients when AI has played a role in drafting a clinician's response. Accordingly, the tool should be designed to preserve clinician ownership of the message — minimizing the volume of AI-generated text while maximizing its impact on tone and clarity. There is also a longer-term risk to consider: if clinicians offload too much of the response-generation process to AI, they may need to spend more time in the future remembering a patient's case or connecting with them on a personal level.
 
@@ -172,7 +172,11 @@ Additionally, the lack of simple integrations with systems like 1177 likely redu
 
 - [e.g., Time-to-intervention reduced by X%]
 - [e.g., Nurse documentation burden reduced from Y to Z minutes/day]
--
+
+
+Measuring patient satisfaction is difficult because there is no clear, standardized metric for it. Currently, doctors receive feedback through reports on 1177, or patients request a different doctor due to how the doctor responds. If enough doctors use this service, it would be possible to compare the average number of reports—or the average number of patients switching doctors—between those who use the service and those who do not.
+A side effect of this service could be time savings for doctors, which can be measured in minutes saved per day.
+A more direct approach would be to survey patients with different types of messages and ask them how they feel about the communication.
 
 ---
 
@@ -211,6 +215,8 @@ Hospital administrators are affected by changes in patient satisfaction as a res
   A simple narrative walkthrough is fine, e.g.:
   "The patient wakes up, measures their..., calls the clinic to..."
 -->
+Currently: Patient texts doctor. Doctor takes time (or don't) and writes back. 
+New: Patient texts doctor. Doctor writes a short version, sends it to out service. Our service helps to formulate it nicer for the patient. Doctor sends back.
 
 ---
 
@@ -226,6 +232,8 @@ Hospital administrators are affected by changes in patient satisfaction as a res
 
   Keep it directional. You will refine this throughout the course.
 -->
+
+Create a service that helps doctors write messages that increase therapeutic outcomes without misleading or lying to the patient. The service should act as an assistant that supports doctors in formulating their own responses, rather than functioning as a chatbot that answers all patient questions automatically. It should be designed and used in a morally responsible way.
 
 ---
 
@@ -304,7 +312,11 @@ Hospital administrators are affected by changes in patient satisfaction as a res
 
 - **[Question/Risk]:** [Your plan to resolve it, and by when]
 - **[Question/Risk]:** [Your plan to resolve it, and by when]
--
+
+- We are still unsure how to design it in a way that doesn't feel like lying to the patient. Do we want to use an LLM or more like a tree like sturctue with LLM support. Should it be fully text generation or multiple suggestions? How to do it so that we would be fine with the service being used when doctors write with us. Resolve it hopefully by next week. 
+- Can we run this LLM locally on out devices? Do we have enough RAM etc. so that it works well enough. Look into it and solve by next week. 
+- If we do profiles for patients that need extra long texts or need extra nice texts etc. How do we define them? How do we let the doctor choose in what way to rewrite it? 
+- Even doing it locally, we should restrict the LLM (if we use one) to not being able to safe data. It should restart each time and not safe any information. It shouldn't be possible to construct a profile of the patient by letting the LLM link together old conversations. Will be resolved when coding start further. 
 
 ---
 
