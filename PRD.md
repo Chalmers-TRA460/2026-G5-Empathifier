@@ -155,7 +155,7 @@ A further clinical safety risk involves the potential for AI-generated content t
 -->
 LLMs have advanced greatly in the last few years, with massive amounts of research and experiments related to it. In the medical setting, the research tends to focus on accuracy and reducing hallucinations rather than empathy, but reducing hallucinations is also crucial for our tool. Although much fewer, there are also examples of researchers fine-tuning LLMs to focus on empathy, but these don't necessarily consider accuracy as an equally important metric.
 
-Recently, a [tool][https://arxiv.org/abs/2601.15558] similar to our idea was developed at 'Mayo Clinic'. The group assessed the potential for using LLMs to edit messages to be more empathic, while conserving the factual correctness. This existing tool was created as part of a research experiment at the company, and is not widely deployed. Although it isn't deployed, the results are promising and indicate that our tool could have the intended effect.
+Recently, a [tool][https://arxiv.org/abs/2601.15558] similar to our idea was developed at the Mayo Clinic. The group assessed the potential for using LLMs to edit messages to be more empathic, while conserving the factual correctness. This existing tool was created as part of a research experiment at the company, and is not widely deployed. Although it isn't deployed, the results are promising and indicate that our tool could have the intended effect.
 
 Additionally, the lack of simple integrations with systems like 1177 likely reduce the adoption by physicians, which our tool would aim to fix. 
 
@@ -326,5 +326,5 @@ The service should act as an assistant that supports doctors in formulating thei
 
 | Version | Date       | Summary of Changes                                  |
 |---------|------------|-----------------------------------------------------|
-| 1.0     | YYYY-MM-DD | Initial draft after first clinical mentor meeting   |
+| 1.0     | 2026-04-17 | Initial draft after first clinical mentor meeting   |
 |         |            |                                                     |
