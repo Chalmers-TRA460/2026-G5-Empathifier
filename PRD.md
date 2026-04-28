@@ -203,6 +203,12 @@ Physicians and nurses who communicate with patients about medical matters using 
   Who else is affected by or has influence over this solution?
   Consider: patients, caregivers, administrators, IT departments,
   payers/insurers, regulators, clinical champions, etc.
+
+
+
+  Notes: 
+  managers of vårdcentralen, who get money per patient
+  tool could be expanded to administrators
 -->
 
 Patients and their caregivers are affected by the resulting clinician responses. 
