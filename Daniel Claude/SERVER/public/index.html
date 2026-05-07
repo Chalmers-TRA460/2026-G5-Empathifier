@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1177 Empathizer — Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="header">
+      <div class="header-left">
+        <span class="logo">1177</span>
+        <span class="header-title">Meddelanden</span>
+      </div>
+      <div class="role-switcher">
+        <button id="btn-patient" class="role-btn active" onclick="setRole('patient')">Patient</button>
+        <button id="btn-doctor" class="role-btn" onclick="setRole('doctor')">Läkare</button>
+      </div>
+    </header>
+
+    <div class="chat-container">
+      <div class="chat-thread" id="chat-thread"></div>
+    </div>
+
+    <div class="input-area" id="input-area">
+      <div class="input-row">
+        <textarea
+          id="chat-input"
+          placeholder="Skriv ett meddelande..."
+          rows="1"
+          onkeydown="handleInputKey(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="send-btn" onclick="sendMessage()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <button class="compose-btn" id="compose-btn" onclick="openModal()">
+        ✦ Generera svar med AI
+      </button>
+    </div>
+
+  </div>
+
+  <!-- AI Compose Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h2>Generera svar</h2>
+        <div class="modal-header-right">
+          <button id="dev-toggle" class="dev-toggle" onclick="toggleDevMode()" title="Aktivera klinisk anmärkning för kommande meddelanden" style="display:none">
+            <span class="dev-dot"></span>
+            <span class="dev-label">Dev</span>
+          </button>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-patient-msg" id="modal-patient-msg">
+          <label>Patientens senaste meddelande</label>
+          <div class="patient-msg-box" id="patient-msg-text"></div>
+        </div>
+
+        <div class="modal-field">
+          <label for="doctor-notes">Dina anteckningar <span class="required">*</span></label>
+          <textarea
+            id="doctor-notes"
+            placeholder="t.ex. 4-6 veckor för full effekt. Leverrisk mycket sällsynt. Remiss om ingen förbättring."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="modal-field">
+          <label for="background">Patientbakgrund <span class="optional">(valfritt)</span></label>
+          <textarea
+            id="background"
+            placeholder="t.ex. hälsoångest. Nämnde hunden Fido. / Write in Swedish / Write in English / Be extra nice"
+            rows="2"
+          ></textarea>
+        </div>
+
+        <label class="history-toggle">
+          <input type="checkbox" id="use-history" />
+          Inkludera hela konversationshistoriken som kontext
+        </label>
+
+        <button class="generate-btn" id="generate-btn" onclick="generateReply()">
+          Generera
+        </button>
+
+        <div id="flag-box" class="flag-box" style="display:none"></div>
+        <div id="fidelity-box" class="banner-box" style="display:none"></div>
+        <div id="sanity-box" class="banner-box sanity" style="display:none"></div>
+
+        <div class="generated-area" id="generated-area" style="display:none">
+          <label>Genererat svar <span class="edit-hint">— du kan redigera</span></label>
+          <textarea id="generated-text" rows="6"></textarea>
+          <button class="done-btn" onclick="useReply()">Använd detta svar →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
