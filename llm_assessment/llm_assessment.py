@@ -22,11 +22,13 @@ def load_prompt(filename):
 
 
 def create_message(global_prompt, patient_message, doctor_response):
-    return (
-        f"{global_prompt}\n\n"
-        f"Patient message:\n{patient_message}\n\n"
-        f"Doctor response:\n{doctor_response}"
+    message = (
+        f"Patient message:\n{patient_message}\n\nDoctor response:\n{doctor_response}"
     )
+    return [
+        {"role": "system", "content": global_prompt},
+        {"role": "user", "content": message},
+    ]
 
 
 def call_api(
@@ -42,7 +44,7 @@ def call_api(
         data=json.dumps(
             {
                 "model": model,
-                "messages": [{"role": user, "content": message}],
+                "messages": message,
             }
         ),
     )
@@ -61,13 +63,14 @@ def call_api(
             data=json.dumps(
                 {
                     "model": model,
-                    "messages": [{"role": user, "content": message}],
+                    "messages": message,
                 }
             ),
         )
 
     if not response.ok:
         print(f"Row {i} failed with status code {response.status_code}, quitting")
+        exit()
 
     return response
 
