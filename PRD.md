@@ -17,8 +17,8 @@
 | **Group**           | TRA460_Group_5                             |
 | **Version**         | 1.0                                        |
 | **Date**            | 2026-04-15                                |
-| **Clinical Mentor** | [David Sundemo, MD PHD, Sahlgrenska]                 |
-| **Group Members**   | [Johannes Lindqvist (MPCSC), Daniel Krämer (MPCAS), Abigail Kruegle (MPCAS), Yuxuan Zhong (MPCAS)]      |
+| **Clinical Mentor** | David Sundemo, MD PHD, Sahlgrenska                 |
+| **Group Members**   | Johannes Lindqvist (MPCSC), Daniel Krämer (MPCAS), Abigail Kruegle (MPCAS), Yuxuan Zhong (MPCAS)      |
 
 ---
 
@@ -39,49 +39,7 @@
            that reduces time-to-treatment for recurrent events."
 -->
 
-A way to increase the empathy of clinician responses to patient portal messages for adults in order to improve patient satisfaction.
-
-<!--
-Critique from Claude: 
-
-Here's an honest critical review of where you stand.
-
-  ---
-  Strengths
-
-  - Solution-free: "increase empathy" describes the change needed without naming any technology — that's disciplined and correct.
-  - Logical flow: problem → population → outcome tells a coherent story. A reader can follow the reasoning without explanation.
-  - Outcome is grounded in real decision-maker priorities: public health systems actively track patient satisfaction scores — this isn't a hypothetical metric.
-  - Patient portal specificity: narrowing from "all written communication" to patient portal messages gives the problem a clear, bounded context.
-
-  ---
-  Weaknesses
-
-  1. "Empathy" is abstract — it's not yet defined in a way that could be measured or operationalized. What does an empathetic message look like versus a cold one? Without that definition,
-  it's hard to know if your tool is working.
-  2. The outcome lacks a specific metric and threshold — "improve patient satisfaction scores" tells us the direction but not the magnitude. A study cannot be designed around this yet.
-  This is your most important gap to close.
-  3. The population may be too broad to show an effect — "adults using patient portals" is a heterogeneous group. A 28-year-old managing a minor infection and a 65-year-old with heart
-  failure may respond very differently. A broader population requires a larger, more expensive study to detect a signal.
-  4. The safety constraint isn't captured — you mentioned that clinical accuracy must be preserved. That's important context missing from the statement.
-
-  ---
-  Skipped-step risks
-
-  - We didn't explore existing solutions — are there communication training programs, templating tools, or style guides already in use? If so, what's their limitation? Your need statement
-  is stronger if you can articulate why current approaches fail.
-  - We didn't explore the upstream angle — could the problem be prevented earlier, e.g., through clinician communication training or patient onboarding that sets expectations for written
-  tone?
-
-  ---
-  Recommended next actions
-
-  1. Interview 3–5 public health system administrators — ask what patient satisfaction metric they watch most closely, what a meaningful improvement looks like, and whether they're already
-   trying to solve this.
-  2. Interview 3–5 clinicians — ask what makes portal messaging hard, whether they've received complaints about tone, and what they've tried.
-  3. Search for existing tools and studies — establish what's already been tried and why it's insufficient. This is the evidence base for your unmet need.
-
--->
+A way to improve communication tone in online portal messaging in adult patients communicating with clinicians through government-operated health portals in Sweden in order to improve patient-reported measures of respect and trust in care.
 
 ---
 
@@ -96,7 +54,7 @@ Here's an honest critical review of where you stand.
   - Why does it matter — clinically, economically, or humanly?
 -->
 
-Since the development of secure healthcare portals, online messaging has become a primary channel for patients to communicate medical concerns, questions, or administrative requests. As the volume and pace of messages increase, clinicians have found a tension between clinical efficiency and compassionate communication. In order to address all of their messages, clinicians often default to brief, clinical language, which is technically accurate, but can leave patients feeling dismissed, misunderstood, or uncared for. For many patients, especially patients with chronic or multiple conditions who rely on frequent written communication, the tone of the messages directly shapes their perception of whether their clinician cares about them. Impersonal or abrupt responses are a driver of patient dissatisfaction, formal complaints, and voluntary disenrollment from care relationships. Clinically, it is important that a patient feels cared for by their clinician to maintain healthy trust and openness. On a human level, it is critical that patients feel cared for throughout their entire healthcare journey, during which they may feel medically or emotionally vulnerable. A tool to ensure that online clinician-written communication is caring and empathetic is a simple way optimize this portion of a patient's healthcare journey.
+Since the development of secure healthcare portals, online messaging has become a primary channel for patients to communicate medical concerns, questions, or administrative requests. As the volume and pace of messages increase, clinicians have found a tension between clinical efficiency and compassionate communication. In order to address all of their messages, clinicians often default to brief, clinical language, which is technically accurate, but can leave patients feeling dismissed, misunderstood, or uncared for. For many patients, especially patients with chronic or multiple conditions who rely on frequent written communication, the tone of the messages directly shapes their perception of whether their clinician cares about them. Impersonal or abrupt responses are a driver of patient dissatisfaction, formal complaints, and voluntary unenrollment from care relationships. Clinically, it is important that a patient feels cared for by their clinician to maintain healthy trust and openness. On a human level, it is critical that patients feel cared for throughout their entire healthcare journey, during which they may feel medically or emotionally vulnerable. A tool to ensure that online clinician-written communication is caring and empathetic is a simple way optimize this portion of a patient's healthcare journey.
 
 ### 1.2 Key Clinical Insights [Required]
 
@@ -125,9 +83,9 @@ Abby's notes, used as an input to Spezi to help write the actual section. Please
   - Another risk is that medical information may become distorted or inaccurate after being processed by an LLM. There will be a clinician always having the final say of a message, but to minimize mistakes and burden on the clinician, medical information must be preserved completely.
 -->
 
-In a conversation with David Sundemo, a clinician who regularly responds to patient portal messages, he indicated that time constraints, workplace stress, and cognitive load can make it difficult for clinicians to craft the emotionally-attuned responses they know their patients need. When doctor or nurse does invest the effort to write a thoughtful, intentional message, it can take significant time, cutting into either their clinical capacity or their personal life. This creates an ultimatum for the healthcare provider: spend too much time, or send a message that falls short. Notably, David observed that many physicians in Sweden are not currently using LLMs to bridge this gap, leaving the problem largely unaddressed in practice. He mentioned a survey where 8% of doctors use LLMs for adm. tasks. 
+In a conversation with David Sundemo, a clinician who regularly responds to patient portal messages, he indicated that time constraints, workplace stress, and cognitive load can make it difficult for clinicians to craft the emotionally-attuned responses they know their patients need. When a doctor or nurse does invest the effort to write a thoughtful, intentional message, it can take significant time, cutting into either their clinical capacity or their personal life. This creates an ultimatum for the healthcare provider. They either spend too much time crafting a message, or they send a message that falls short. Notably, David observed that many physicians in Sweden are not currently using LLMs to bridge this gap, leaving the problem largely unaddressed in practice. He mentioned a survey where 8% of doctors use LLMs for administrative tasks. 
 
-AI-driven tools could provide an opportunity to draft better messages in less time, with the risk that patients may perceive AI-generated messages as inauthentic. We believe there is an ethical obligation to be transparent with patients when AI has played a role in drafting a clinician's response. Accordingly, the tool should be designed to preserve clinician ownership of the message — minimizing the volume of AI-generated text while maximizing its impact on tone and clarity. There is also a longer-term risk to consider: if clinicians offload too much of the response-generation process to AI, they may need to spend more time in the future remembering a patient's case or connecting with them on a personal level.
+AI-driven tools could provide an opportunity to draft better messages in less time, with the risk that patients may perceive AI-generated messages as inauthentic. We believe there is an ethical obligation to be transparent with patients when AI has played a role in drafting a clinician's response. Accordingly, the tool should be designed to preserve clinician ownership of the message, minimizing the volume of AI-generated text while maximizing its impact on tone and clarity. There is also a longer-term risk to consider: if clinicians offload too much of the response-generation process to AI, they may need to spend more time in the future remembering a patient's case or connecting with them on a personal level.
 
 A further clinical safety risk involves the potential for AI-generated content to distort or obscure the clinician's intended medical information. Large language models can hallucinate, and even when they do not, subtle rephrasing of clinical guidance can change its meaning in ways that are can impact patient safety. A message that inadvertently alters a medication instruction, softens a warning, or introduces ambiguity around a diagnosis could cause real harm. This risk must be mitigated by a core design principle to treat the clinician's medical input as authoritative and immutable, with AI influence scoped strictly to tone, clarity, and empathy, and never to clinical substance. Any version of the message presented to the clinician for review should make it easy to verify that the medical content remains exactly as intended.
 
@@ -142,22 +100,21 @@ A further clinical safety risk involves the potential for AI-generated content t
   - Clinical tools, apps, devices, workflows
   - Why are they insufficient, inaccessible, or underused?
   - What gap remains that your project could fill?
--->
 
-<!--
   Notes for this section:
-  - Clinical tools: 
-    - similar tools have been implemented at other healthcare facilities, in early stages. It's a moment where this problem is actively being recognized, but portals like 1177 do not have a tool available
-    - clinicians could prompt secured LLMs on their own to help with drafting. This has a fairly high burden on the clinician to do this prompting,  chatting with an AI agent, and final review. The ideal solution would be simpler.
-  - What gap remains that your project could fill?
-    - more simple solution that minimized the amount of LLM-generated message while maximizing empathy. Easy to use, fast, and adjustable to different types of patients
-  
+  Here are good articles we should use in our report: 
+  https://pmc.ncbi.nlm.nih.gov/articles/PMC12075825/ 
+  https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309 
+  https://arxiv.org/abs/2601.15558 
 -->
-LLMs have advanced greatly in the last few years, with massive amounts of research and experiments related to it. In the medical setting, the research tends to focus on accuracy and reducing hallucinations rather than empathy, but reducing hallucinations is also crucial for our tool. Although much fewer, there are also examples of researchers fine-tuning LLMs to focus on empathy, but these don't necessarily consider accuracy as an equally important metric.
 
-Recently, a [tool][https://arxiv.org/abs/2601.15558] similar to our idea was developed at the Mayo Clinic. The group assessed the potential for using LLMs to edit messages to be more empathic, while conserving the factual correctness. This existing tool was created as part of a research experiment at the company, and is not widely deployed. Although it isn't deployed, the results are promising and indicate that our tool could have the intended effect.
+  Clinicians currently have limited traditional options for improving the tone of portal messages in a timely manner. Tight schedules and heavy workloads often prevent doctors and nurses from taking the time to write a more emotionally-driven message, and this workload also makes it difficult to get a second opinion on a message from a colleague. These clinicians could turn to general-purpose LLMs to review and edit communications. While technically feasible, this approach adds a time burden to an already time-constrained workflow, and the use of online AI services raises concern for clinicians about patient privacy. 
 
-Additionally, the lack of simple integrations with systems like 1177 likely reduce the adoption by physicians, which our tool would aim to fix. 
+  Since empathetic communication is a universal need across healthcare systems internationally, many existing solutions have been developed and integrated into healthcare infrastructure to meet this need. Some technologies existing technologies address the need at earlier stages in the patient journey, such as AI assistants to answer patient questions about their medical records, AI chatbots to answer non-emergency medical questions, and LLM-driven tools to speed up other routine tasks in healthcare providers' workflow, allowing them more time to respond to patient messages.
+  
+  The focus of this project, though, is a tool to specifically improve understanding and trust in patient portal messages. Dozens of companies and institutions have introduced tools specifically targeted in this area, such as Epic (Epic AI Text Assistant), Doctrin, and more custom-designed tools designed for specific healthcare systems such as Stanford University and the Mayo Clinic. These tools exist in various stages of clinical implementation. 
+
+  While innovation in this space is accelerating, no simple, integrated solution exists within public healthcare portals in Sweden, namely 1177. This project aims to fill this gap by providing a lightweight tool that improves message tone with minimal clinician burden, preserves medical accuracy, and integrates directly into existing 1177 workflows.
 
 
 ### 1.4 Success Metrics [Recommended]
@@ -168,17 +125,58 @@ Additionally, the lack of simple integrations with systems like 1177 likely redu
   How will you know your solution actually addresses the need?
   Think about the "that..." clause in your Needs Statement —
   how would you measure or observe that outcome?
--->
-
 - [e.g., Time-to-intervention reduced by X%]
 - [e.g., Nurse documentation burden reduced from Y to Z minutes/day]
-- Factual Accuracy Retention Rate: ≥X% fact consistency between rewritten and original messages.
-- Reduction in Follow-up Queries：Whether the rate of follow-up questions within 48 hours of receiving a response has decreased by X%. (Clear and empathetic responses typically alleviate patient anxiety and thereby reduce follow-up inquiries.)
+- [e.g. Factual Accuracy Retention Rate: ≥X% fact consistency between rewritten and original messages.]
+- [e.g. Reduction in Follow-up Queries：Whether the rate of follow-up questions within 48 hours of receiving a response has decreased by X%. (Clear and empathetic responses typically alleviate patient anxiety and thereby reduce follow-up inquiries.)]
 
 
-Measuring patient satisfaction is difficult because there is no clear, standardized metric for it. Currently, doctors receive feedback through reports on 1177, or patients request a different doctor due to how the doctor responds. If enough doctors use this service, it would be possible to compare the average number of reports—or the average number of patients switching doctors—between those who use the service and those who do not.
-A side effect of this service could be time savings for doctors, which can be measured in minutes saved per day.
-A more direct approach would be to survey patients with different types of messages and ask them how they feel about the communication.
+Outcome: Improve patient-reported measures of respect and trust in care
+- Tied to "Respect and treatment" category of Nationell patientenkät (NPE), a survey conducted every few years in Sweden
+- Poor communication tone leads to provider-switching, second-opinion seeking, and relationship erosion. 
+  - This could be quantified through analysis of provider-switching, the number of clinicians that a patient communicates with for any given medical issue, or the number of follow-up messages a patient sends on a given medical issue
+- Factual Accuracy: LLM-generated messages must maintain consistency of medical information between rewritten and original messages
+  - could be quantified through a Factual Accuracy Retention Rate: ≥X% fact consistency between rewritten and original messages.
+- Also possible to conduct a survey on 1177 specifically for this tool to ask patients how they feel about the communication
+- Also important to make sure this does not add time to the doctor's workflow
+-->
+
+Primary Metric: Patient-Reported Communication Quality
+
+  The primary measure of success is patient satisfaction with portal message communication, captured through an in-portal survey deployed within 1177. Patients will rate their messaging experience on a 5-point scale across multiple dimensions, which are inspired by Sweden's Nationell Patientenkät (NPE) survey:
+
+  - Respect & Care: did the message make you feel heard and cared for?
+  - Information & Clarity: was the medical information clear and easy to understand?
+  - Continuity & Coordination: do you feel well-informed and involved in the next steps?
+  - Perceived Participation & Involvement: did the message make you feel like an active participant in your care?
+  - Accessibility: was the message easy to access and understand?
+  - Overall Experience: how would you rate your overall experience with this communication?
+
+  Target: [to be defined after baseline measurement]
+
+  Long-Term Metric: Nationell Patientenkät (NPE)
+
+  Improvement in the "Respect and Treatment" category of the NPE will serve as the long-term population-level indicator of success, evaluated on the NPE's standard survey cycle.
+
+
+  Safety Metric: Factual Accuracy Retention Rate
+
+  LLM-rewritten messages must preserve the factual content of the original clinician message. Factual Accuracy Retention Rate is defined as the percentage of medical facts from the original message retained accurately in the rewritten version, as well as the percentage of medical facts from the rewritten message derived accurately from the original message.
+
+  Target: ≥[X]% (threshold to be determined in consultation with clinical stakeholders)
+
+  Operational Constraint: Clinician Workflow Time
+
+  The tool must not increase the time clinicians spend on portal messages. Baseline message response time will be established through a pre-launch clinician survey, assessing the time to draft messages with and without the tool. 
+
+  Target: average response time within baseline range (threshold to be determined)
+
+  Long-Term Behavioral Indicators
+
+  The following will be tracked as lagging indicators of relationship quality over time:
+  - Provider-switching rate among active 1177 portal users
+  - Average number of clinicians contacted per medical issue
+  - Volume of follow-up messages per medical issue per patient
 
 ---
 
