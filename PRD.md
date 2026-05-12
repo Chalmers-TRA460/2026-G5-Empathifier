@@ -163,7 +163,7 @@ Primary Metric: Patient-Reported Communication Quality
 
   LLM-rewritten messages must preserve the factual content of the original clinician message. Factual Accuracy Retention Rate is defined as the percentage of medical facts from the original message retained accurately in the rewritten version, as well as the percentage of medical facts from the rewritten message derived accurately from the original message.
 
-  Target: ≥[X]% (threshold to be determined in consultation with clinical stakeholders)
+  Target: ≥[X]% (threshold to be determined in consultation with clinical stakeholders) - Abby to read through the papers
 
   Operational Constraint: Clinician Workflow Time
 
@@ -191,7 +191,7 @@ Primary Metric: Patient-Reported Communication Quality
   Be specific: "Cardiac nurses in outpatient clinics" not just "nurses."
 -->
 
-Physicians and nurses who communicate with patients about medical matters using an online patient portal.
+Physicians, nurses, and other healthcare providers who communicate with patients about medical matters using an online patient portal.
 
 ### 2.2 Other Stakeholders [Required]
 
@@ -202,15 +202,15 @@ Physicians and nurses who communicate with patients about medical matters using 
   Consider: patients, caregivers, administrators, IT departments,
   payers/insurers, regulators, clinical champions, etc.
 
-
-
   Notes: 
   managers of vårdcentralen, who get money per patient
   tool could be expanded to administrators
 -->
 
-Patients and their caregivers are affected by the resulting clinician responses. 
-Hospital administrators are affected by changes in patient satisfaction as a result of the tool.
+Patients and their caregivers are affected by the resulting clinician responses, and the tool may change levels of trust that patients and caregivers put in their healthcare system.
+Hospital administrators who handle documentation and appointments could experience improvements in patient communication when their patients are more satisfied with their care, as well as a reduced scheduling burden if patients are more satisfied with their original healthcare provider. Hospital administrators who have contact with patients could benefit from an expansion of this tool that could improve their communication streams with patients. 
+Managers of hospitals and of Vårdcentraler are negatively impacted by dissatisfied patients who choose to continue their care elsewhere, as these institutions are paid per patient.
+Regional healthcare management is motivated to invest money into a product that efficiently improves patient satisfaction, and the region is impacted by positive or negative changes in care.
 
 ### 2.3 User Journey — Current State [Recommended]
 
@@ -220,9 +220,12 @@ Hospital administrators are affected by changes in patient satisfaction as a res
   Describe the current care pathway or experience of your primary user.
   A simple narrative walkthrough is fine, e.g.:
   "The patient wakes up, measures their..., calls the clinic to..."
--->
+
 Currently: Patient texts doctor. Doctor takes time (or don't) and writes back. 
 New: Patient texts doctor. Doctor writes a short version, sends it to out service. Our service helps to formulate it nicer for the patient. Doctor sends back.
+-->
+
+Currently, the patient experiences a non-emergency medical concern or has a question regarding their medical care. The patient or their caregiver logs into their online patient portal and finds the healthcare provider. The patient or caregiver drafts and sends a message containing their medical question or concern. The patient or caregiver waits for the healthcare provider to respond, and reads the response. If necessary, the patient or caregiver responds to the clinician's and/or follows the follow-up instructions from the healthcare provider. 
 
 ---
 
@@ -238,8 +241,9 @@ New: Patient texts doctor. Doctor writes a short version, sends it to out servic
 
   Keep it directional. You will refine this throughout the course.
 -->
-Our vision is to build an communication assistant.It not only cuts down the time doctors spend on routine patient message responses and makes their replies more empathetic and humanized, but also crucially ensures the complete retention of all critical medical information. For patients, this means access to accurate medical information alongside a genuine sense of being understood and respected, which in turn reduces unnecessary anxiety and repetitive follow-up inquiries. The end result is a more efficient and harmonious doctor-patient communication dynamic.
-The service should act as an assistant that supports doctors in formulating their own responses, rather than functioning as a chatbot that answers all patient questions automatically. It should be designed and used in a morally responsible way.
+We envision a communication assistant integrated directly into the 1177.se messaging interface, designed to help healthcare providers craft warmer, more empathetic responses without adding time to their workflow. When activated, the tool presents a structured input interface where the clinician enters relevant medical information and any additional context. Using the patient's original message, the clinician's input, and a series of carefully designed prompts, the tool uses an LLM to generate a draft response that is respectful, professional, and warm in tone. The clinician then reviews, edits, and sends, maintaining full ownership of the final message.
+
+To preserve medical accuracy, the tool employs a multi-layer LLM architecture in which each layer reviews the output of the previous one, minimizing hallucinations and ensuring factual consistency with the clinician's original input. All processing runs on a securely controlled server, designed to comply at minimum with GDPR, the Swedish Patient Data Act (Patientdatalagen, PDL), and the NIS2 Directive.
 
 ---
 
