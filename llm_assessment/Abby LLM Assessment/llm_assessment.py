@@ -37,7 +37,7 @@ def call_api(
     message,
     model="meta-llama/llama-3.3-70b-instruct",
     user="user",
-    api_key=None,
+    api_key = None,
 ):
     api_key = api_key or os.environ.get("OPENROUTER_API_KEY", "")
     response = requests.post(

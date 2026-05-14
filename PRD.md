@@ -260,9 +260,9 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
   will grow significantly in later iterations.
 -->
 
-**Must Have** — *Non-negotiable for a functioning MVP*
-- [e.g., Patient can log daily symptom entries via a mobile interface]
--
+**Must Have** 
+- <!-- e.g., Patient can log daily symptom entries via a mobile interface] -->
+- 
 
 **Should Have** — *High value, but the MVP could technically function without these*
 - [e.g., Clinician receives a weekly summary report of patient-logged data]
