@@ -260,21 +260,52 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
   will grow significantly in later iterations.
 -->
 
-**Must Have** 
-- <!-- e.g., Patient can log daily symptom entries via a mobile interface] -->
-- 
+<!--
+  PENDING REVIEW (Abby, to resume): a second pass on §4.1 is open.
+  Recommendations are saved in memory at
+  `empathifier-prd-section-4-1-pending.md`. Headline items:
+
+  Testability — define what "empathy", "accessible language", and
+  "professional tone" mean for testing.
+  Consolidation — merge the three medical-preservation rules into
+  one with sub-bullets for distinct failure modes.
+  Missing — explicit "user reviews/edits draft before sending";
+  one draft vs. multiple (still open in §6); spell out what
+  "no additional information" excludes; behavior on empty input.
+  Should/Could/Won't — define language-refusal UX; split Could-Have
+  into two future-iteration items; expand Won't-Have to include
+  no auto-send, no multi-turn chatbot, no patient-data retention.
+
+  Preliminary subset to apply: items 1, 2, 4, 5, 7, 10, 11.
+-->
+
+**Must Have** — *Non-negotiable for a functioning MVP*
+- The user can write a response manually or choose to activate the tool.
+- The tool allows the user to input medical information as well as non-medical background information.
+- The tool generates only a response to the patient, with no additional information.
+- The tool generates a response in the same language that the medical information was provided in.
+- The tool does not engage with the user (for example, to ask clarifying questions or discuss the input information) prior to generating a response.
+- Content requirements:
+  - The tool edits the user's provided information to form a response to the patient in complete sentences.
+  - The response has a greater level of empathy than the user's provided information alone.
+  - The tool does not change the doctor's medical advice (even in cases of incorrectness or irrelevance).
+  - The tool does not add medical advice, obfuscate medical advice, or remove medical advice from the user's input information.
+  - The tool does not change the clinical meaning, urgency, or instructions of the user's input information.
+  - The tool writes in first-person, as the user.
+  - The tool uses accessible language.
+  - The drafted message does not indicate that AI was used. Disclosure of AI involvement is a separate feature, to be designed and placed outside the drafted message itself (e.g., portal-level notice, settings, or policy). Where exactly disclosure lives is an open group decision.
+  - The tool ignores everything in the user's input non-medical information except patient personal context, personal references, and moderate tone calibration (i.e., the tool may slightly soften or warm tone based on patient context, but never change content).
+  - The tool always maintains a professional tone.
 
 **Should Have** — *High value, but the MVP could technically function without these*
-- [e.g., Clinician receives a weekly summary report of patient-logged data]
--
+- The tool refuses to generate a response if either the medical information field or the non-medical information field contains content in a language other than Swedish or English, and notifies the user that this is the case.
 
 **Could Have** — *Nice-to-have if time and resources allow*
-- [e.g., Push notification reminders for symptom logging]
--
+- The integrated LLM could be appropriate for integration with 1177 and run locally to protect patient safety.
 
 **Won't Have** — *Explicitly out of scope for this project*
-- [e.g., Integration with national EHR systems]
--
+- Integration with 1177.
+- Use of a locally-run LLM.
 
 ### 4.2 Non-Functional Requirements & Constraints [Recommended]
 
