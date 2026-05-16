@@ -249,6 +249,12 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 
 ## 4. Requirements
 
+### 4.0 Scope of MVP vs. Full Vision
+ The Solution Vision in §3 describes the full product as we ultimately envision it: a tone-rewriting assistant embedded directly in the 1177.se messaging interface, with all LLM processing running on infrastructure that meets Swedish healthcare data-handling requirements. Both 1177 integration and locally-controlled hosting are central to the gap identified in §1.3, and both remain non-negotiable for any real-world deployment.
+ 
+ For this course, the MVP is scoped as a **standalone proof-of-concept of the tone-rewriting capability itself**. It demonstrates that a clinician's medical input can be reliably transformed into a warmer, more empathetic patient-facing draft while preserving medical fidelity (see §1.4 and §4.1 Must-Haves). It does not yet run inside 1177, and it does not yet run on healthcare-grade infrastructure. These are instead captured as "Could Have" in §4.1 and will be deferred to future iterations. The MVP is intended to validate the core capability so that integration and hosting work, both of which are substantial engineering and policy efforts, can be justified and developed with confidence.
+
+
 ### 4.1 Functional Requirements (MoSCoW) [Recommended]
 
 <!--
@@ -266,6 +272,7 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
   Testability plan for all requirements
   What happens if the user inputs not enough or irrelevant or incomprehensible input?
 -->
+
 
 **Must Have** — *Non-negotiable for a functioning MVP*
 - The user can write a response manually or choose to activate the tool.
@@ -299,7 +306,6 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 **Won't Have** — *Explicitly out of scope for this project*
 - Sending messages on the user's behalf. The tool produces a draft; the user is always the one who sends.
 - Multi-turn conversation. The tool does not chat with the user, ask follow-up questions, or maintain a dialogue. It generates one draft per activation
-- Retention of patient data between activations. The tool does not store, log, or carry over patient information from one use to the next.
 
 ### 4.2 Non-Functional Requirements & Constraints [Recommended]
 
@@ -314,6 +320,28 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
   - Performance, offline capability
 -->
 
+Data Privacy & Security
+  - TBD: All patient data and clinician input must be processed in an environment that complies with GDPR, the Swedish Patient Data Act (Patientdatalagen, PDL), and the NIS2 Directive.
+  - The tool must not store, log, or carry over patient information between activations. Inputs are discarded once the draft is returned to the clinician.
+  - For real-world deployment (post-MVP), the LLM must run locally or in an environment that meets Swedish healthcare data-handling requirements. 
+  - The tool must not be able to construct or retain a profile of any patient across sessions.
+
+  Regulatory
+  - The tool is a communication aid, not a clinical decision-support system. It must not influence clinical substance (see §4.1 Must-Haves). This is intended to keep the tool outside the scope of MDR as a medical device. This classification should be confirmed with a regulatory advisor before deployment.
+
+  Interoperability
+  - The tool must integrate with the 1177.se messaging interface and meet Inera's technical and policy requirements for tools operating within 1177.
+
+  Accessibility & Localization
+  - The tool must support Swedish and English input and output.
+  - Any UI surfaces presented to the clinician should target WCAG 2.1 AA compliance.
+
+  Performance
+  - The tool must not increase the clinician's average response time per message (see §1.4 Operational Constraint). Draft generation latency should be low enough that it is faster to activate the tool than to write a comparably empathetic message manually.
+
+  Reliability
+  - If the LLM is unavailable or fails, the clinician must still be able to send a manually-written response through the normal portal flow. The tool must never block the existing workflow.
+
 ---
 
 ## 5. Technical Direction [Expand Later]
@@ -327,7 +355,7 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 -->
 
 - **Platform:** [iOS / Android / Web / Cross-platform / TBD]
-- **Key Integrations:** [EHR systems, wearables, sensors, APIs, etc.]
+- **Key Integrations:** APIs of LLMs for message generations and multi-layer LLM checks
 - **Candidate Tech Stack:** [SpeziVibe, Swift/Kotlin, React, etc. / TBD]
 - **Infrastructure:** [Cloud provider, on-premise, hybrid / TBD]
 
