@@ -261,51 +261,45 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 -->
 
 <!--
-  PENDING REVIEW (Abby, to resume): a second pass on §4.1 is open.
-  Recommendations are saved in memory at
-  `empathifier-prd-section-4-1-pending.md`. Headline items:
+  PENDING REVIEW:
 
-  Testability — define what "empathy", "accessible language", and
-  "professional tone" mean for testing.
-  Consolidation — merge the three medical-preservation rules into
-  one with sub-bullets for distinct failure modes.
-  Missing — explicit "user reviews/edits draft before sending";
-  one draft vs. multiple (still open in §6); spell out what
-  "no additional information" excludes; behavior on empty input.
-  Should/Could/Won't — define language-refusal UX; split Could-Have
-  into two future-iteration items; expand Won't-Have to include
-  no auto-send, no multi-turn chatbot, no patient-data retention.
-
-  Preliminary subset to apply: items 1, 2, 4, 5, 7, 10, 11.
+  Testability plan for all requirements
+  What happens if the user inputs not enough or irrelevant or incomprehensible input?
 -->
 
 **Must Have** — *Non-negotiable for a functioning MVP*
 - The user can write a response manually or choose to activate the tool.
 - The tool allows the user to input medical information as well as non-medical background information.
-- The tool generates only a response to the patient, with no additional information.
+- The tool's output contains only the response to the patient. It does not include: meta-commentary, preambles or sign-offs from the tool itself, headers or section labels, explanations
+  ▎ of what the tool changed, alternative phrasings, or notes to the user.
 - The tool generates a response in the same language that the medical information was provided in.
 - The tool does not engage with the user (for example, to ask clarifying questions or discuss the input information) prior to generating a response.
+- The tool presents its output as an editable draft. The user reviews and may freely edit the draft before any sending action; the tool itself does not send messages on the user's behalf (see Won't-Have)
 - Content requirements:
   - The tool edits the user's provided information to form a response to the patient in complete sentences.
-  - The response has a greater level of empathy than the user's provided information alone.
-  - The tool does not change the doctor's medical advice (even in cases of incorrectness or irrelevance).
-  - The tool does not add medical advice, obfuscate medical advice, or remove medical advice from the user's input information.
-  - The tool does not change the clinical meaning, urgency, or instructions of the user's input information.
+  - The response has a greater level of empathy than the user's provided information alone, as judged by human raters against a rubric (rubric to be defined; see §1.4).
+  - The tool preserves the user's medical content with full fidelity. Specifically, the tool does not:
+    - **Add** medical advice, claims, or information not present in the user's input.
+    - **Remove or obfuscate** any of the user's medical advice or information.
+    - **Alter the substance** of the user's medical advice, even if it appears incorrect or irrelevant.
+    - **Alter the clinical meaning, urgency, or instructions** conveyed by the user's input.
   - The tool writes in first-person, as the user.
-  - The tool uses accessible language.
+  - The tool uses accessible language in any wording it adds: short sentences and common words. The tool does not introduce medical jargon, but it preserves the user's medical content (including any terms or explanations the user wrote) verbatim — it does not add, simplify, or expand on the user's medical wording.
   - The drafted message does not indicate that AI was used. Disclosure of AI involvement is a separate feature, to be designed and placed outside the drafted message itself (e.g., portal-level notice, settings, or policy). Where exactly disclosure lives is an open group decision.
   - The tool ignores everything in the user's input non-medical information except patient personal context, personal references, and moderate tone calibration (i.e., the tool may slightly soften or warm tone based on patient context, but never change content).
-  - The tool always maintains a professional tone.
+  - The tool's tone is warm and empathetic while remaining professional. It is respectful, free of slang or casual familiarity, and appropriate for clinical correspondence. Empathy is expressed through acknowledgment and care, not informality.
 
 **Should Have** — *High value, but the MVP could technically function without these*
-- The tool refuses to generate a response if either the medical information field or the non-medical information field contains content in a language other than Swedish or English, and notifies the user that this is the case.
+-  If either input field contains content in a language other than Swedish or English, the tool blocks generation and notifies the user that the input must be in Swedish or English. The tool does not generate a draft until the user revises the input.
 
 **Could Have** — *Nice-to-have if time and resources allow*
-- The integrated LLM could be appropriate for integration with 1177 and run locally to protect patient safety.
+- The integrated LLM runs locally (or in an environment that meets Swedish healthcare data-handling requirements) to protect patient data.
+- The tool meets the technical and policy requirements for integration with 1177 (Sweden's national patient portal).
 
 **Won't Have** — *Explicitly out of scope for this project*
-- Integration with 1177.
-- Use of a locally-run LLM.
+- Sending messages on the user's behalf. The tool produces a draft; the user is always the one who sends.
+- Multi-turn conversation. The tool does not chat with the user, ask follow-up questions, or maintain a dialogue. It generates one draft per activation
+- Retention of patient data between activations. The tool does not store, log, or carry over patient information from one use to the next.
 
 ### 4.2 Non-Functional Requirements & Constraints [Recommended]
 
