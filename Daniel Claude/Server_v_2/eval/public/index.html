@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fidelity Verifier — Eval Harness</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+  <header class="page-header">
+    <h1>Fidelity Verifier — Adversarial Eval</h1>
+    <p class="subtitle">Mutate faithful replies, see whether the verifier catches the alterations.</p>
+  </header>
+
+  <section class="panel">
+    <h2>1 · Cases</h2>
+    <p class="hint">Paste JSONL, one case per line. Each line: <code>{"id":"...","patientMessage":"...","doctorNotes":"...","reply":"...","background":"optional"}</code></p>
+    <textarea id="cases" rows="10" placeholder='{"id":"case-001","patientMessage":"...","doctorNotes":"...","reply":"..."}'></textarea>
+    <div class="row">
+      <button id="loadSample" type="button" class="secondary">Load sample cases</button>
+      <span id="caseCount" class="muted">0 cases</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2 · Configuration</h2>
+    <label>
+      Target instances per mutation type:
+      <input id="targetN" type="number" min="1" max="20" value="5" />
+    </label>
+    <p class="hint">21 mutation types × N = total tests. At N=5 expect ~$0.85 and ~30–60 s.</p>
+  </section>
+
+  <section class="panel">
+    <h2>3 · Run</h2>
+    <button id="runBtn" type="button" class="primary">Run evaluation</button>
+    <span id="status" class="muted"></span>
+  </section>
+
+  <section id="resultsPanel" class="panel hidden">
+    <h2>Summary</h2>
+    <div id="overall" class="overall"></div>
+    <h3>By category</h3>
+    <table class="summary-table" id="categoryTable"></table>
+    <h3>By mutation</h3>
+    <table class="summary-table" id="mutationTable"></table>
+    <div id="insufficientPanel" class="insufficient hidden"></div>
+
+    <div class="row results-header">
+      <h2>Per-case results</h2>
+      <button id="exportCsv" type="button" class="secondary">Export CSV</button>
+    </div>
+    <table class="results-table" id="resultsTable"></table>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
