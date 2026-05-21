@@ -1,3 +1,9 @@
+/*
+This module defines 2 agents for our testing app. One creates adversarial attacks and one tries to identify them. 
+The Fidelity system is the same as in the main test app. 
+This file defines the agent system prompts and the functions to call them, which are used by the test app.
+*/
+
 require('dotenv').config();
 const Anthropic = require('@anthropic-ai/sdk');
 

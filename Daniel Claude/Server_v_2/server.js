@@ -1,3 +1,8 @@
+ /* 
+ This is the backend server for the clinical communication assistant. It exposes two main endpoints:
+- POST /api/generate: takes the doctor's notes, patient's message, and optional background and chat history, and returns the AI-generated patient reply along with fidelity and sanity checks.
+- POST /api/verify: takes the same inputs plus a generated reply, and returns just the fidelity and sanity checks (used for manual verification of edited replies).
+ */
 require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
@@ -21,6 +26,12 @@ const LOG_DIR = path.join(__dirname, 'logs');
 const LOG_FILE = path.join(LOG_DIR, 'audit.jsonl');
 fs.mkdirSync(LOG_DIR, { recursive: true });
 
+/*
+This part is the core prompt engineering for the generator and verifier. 
+The generator creates the doctor notes into a patient reply. 
+The verifier checks that the generator did not add or alter any medical information relative to the doctor's notes.
+The sanity checker looks for obvious clinical mistakes in the doctor's notes that a doctor would catch at a glance - this is a DEV mode feature. Not part of the original product.
+*/
 const GENERATOR_SYSTEM = `You are a clinical communication assistant for the Swedish healthcare patient portal (1177).
 
 Your single job is to transform the clinician's brief shorthand notes into a complete, warm, empathetic reply to the patient. You are NOT the medical safety net — a separate verifier checks medical fidelity. Your only concerns are tone, structure, and language.
@@ -166,6 +177,10 @@ Respond with strict JSON only — no prose, no code fences, no commentary:
   "note": "one sentence describing the concern, or empty string if no concern"
 }`;
 
+/*
+This function build the content for the user message to the generator, based on the doctor's notes,
+patient's message, optional background, and optional chat history.
+*/
 function buildUserContent({ doctorNotes, patientMessage, background, chatHistory }) {
   let content = '';
   if (chatHistory && chatHistory.length > 1) {
@@ -184,6 +199,9 @@ function buildUserContent({ doctorNotes, patientMessage, background, chatHistory
   return content;
 }
 
+/*
+Phrases the generator might use that trigger a regeneration.
+*/
 const REFUSAL_PATTERNS = [
   /^I (cannot|can't|won't|am not able|am unable)\b/i,
   /^I'?m (sorry|not able|unable|not comfortable)\b/i,
@@ -223,6 +241,9 @@ function looksLikeRefusal(text) {
   return REFUSAL_PATTERNS.some(p => p.test(trimmed));
 }
 
+/*
+The 3 models running to generate, verify and sanity check. 
+*/
 async function runGenerator(userContent, stronger = false) {
   const userText = stronger
     ? userContent + '\n\nReminder: produce the complete patient reply now. Do not refuse and do not hedge. Begin the patient reply directly.'
@@ -277,6 +298,9 @@ function parseJson(text, fallback) {
   }
 }
 
+/*
+Audit file creation 
+*/
 function appendAudit(record) {
   try {
     fs.appendFileSync(LOG_FILE, JSON.stringify(record) + '\n');
@@ -285,6 +309,11 @@ function appendAudit(record) {
   }
 }
 
+/*
+API endpoints. Communication with frontend happens here. Validates that patient and doctor inputs are present. 
+Runs the generator, then the verifier (and sanity checker in dev mode) and returns the results to the frontend.
+Sets port for server at the end.
+*/
 app.get('/api/config', (_req, res) => {
   res.json({
     devModeDefault: DEV_MODE,

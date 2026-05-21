@@ -1,3 +1,8 @@
+/*
+This file creates the frontend app for the mutation evaluation tool.
+Similar to the product app. 
+*/
+
 const $ = (id) => document.getElementById(id);
 
 const casesEl = $('cases');

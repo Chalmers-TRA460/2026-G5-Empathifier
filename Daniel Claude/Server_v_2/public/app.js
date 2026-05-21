@@ -1,3 +1,13 @@
+/*
+Browserside of demo app. 
+Works with the UI and handles interactions. 
+This is the frontend. 
+*/
+
+/*
+State managment and connecting to backend APIs.
+Switch between patient and doctor view, store messages, handle dev mode, send messages and so on
+*/
 let currentRole = 'patient';
 let messages = [];
 let appConfig = { devModeDefault: false, sanityCheckerAvailable: false };
@@ -104,6 +114,11 @@ function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
 }
+/*
+Modal management and generating replies.
+When doctor clicks on generate answer with AI this logic triggers
+Triggers backend with generation request and handles the response.
+*/
 
 function openModal() {
   const lastMsg = getLastPatientMessage();
@@ -167,7 +182,10 @@ async function generateReply() {
       flagBox.textContent = flag;
       flagBox.style.display = 'block';
     }
-
+    /*
+    Renders the fidelity and sanity check results. 
+    Also handles some dev mode features like the test injection button and regenerating the reply. 
+    */
     renderFidelity(data.fidelity);
     if (data.devMode) renderSanity(data.sanity);
 
@@ -274,7 +292,9 @@ async function injectTestInfo() {
     btn.innerHTML = originalHtml;
   }
 }
-
+/*
+Copies the generated reply into the chat input. 
+*/
 function useReply() {
   const text = document.getElementById('generated-text').value.trim();
   if (!text) return;

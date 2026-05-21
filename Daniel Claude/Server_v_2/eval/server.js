@@ -1,3 +1,8 @@
+/*
+This is the web server / API layer that wraps the evaluation framework.
+It reads our predefined dataset that one can instantly upload. 
+It mainly links the backend to the frontend. 
+*/
 require('dotenv').config();
 const express = require('express');
 const fs = require('fs');

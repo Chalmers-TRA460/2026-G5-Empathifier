@@ -1,3 +1,8 @@
+/*
+This file consists of a list of possible mutations (alterations) that can be applied to a medical advice reply, 
+along with their categories and directives. 
+It is easy to add additional mutations. The adversarial agent uses of these mutations on the generated reply.
+*/
 const MUTATIONS = [
   // === DOSE ===
   {

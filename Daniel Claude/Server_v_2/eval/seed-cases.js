@@ -1,6 +1,8 @@
 // One-shot script: takes hardcoded (patient, doctor-notes, background) triples,
 // calls the running main server at :3000 to generate the reply via the production
 // generator, and appends the cases to eval/cases/sample.jsonl.
+// Was used to create a newer version of our dataset. Do not need to run that again.
+// Could deal with cases when the generated answer had the problems like already being flagged. But that didn't happen.
 
 const fs = require('fs');
 const path = require('path');

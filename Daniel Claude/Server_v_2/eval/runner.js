@@ -1,3 +1,8 @@
+/*
+This part runs the mutation and verification and the agents in agents.js. 
+The adversary rewrites the doctor's reply to introduce the flaw defined by that mutation.
+Cases that can't have the mutation meaningfully applied are skipped.
+*/
 const { runVerifier, runAdversary } = require('./agents');
 const { MUTATIONS, CATEGORIES } = require('./mutations');
 
@@ -54,6 +59,10 @@ async function runMutationType({ mutation, cases, targetN }) {
   };
 }
 
+/*
+The verifier tries cathcing the mutations and return a verdict. 
+Handlse also cases when mutations could not be applied because of the generated text. Example. Cant alter dosage if no dose is specified. 
+*/
 async function verifySuccesses(mutationResults, concurrency = 10) {
   const jobs = [];
   for (const mr of mutationResults) {
@@ -84,6 +93,9 @@ async function verifySuccesses(mutationResults, concurrency = 10) {
   return verified;
 }
 
+/*
+Summarize the results by catchrate, mutation type and so on
+*/
 function summarize(verified, mutationResults) {
   const total = verified.length;
   const caught = verified.filter(v => v.caught).length;
