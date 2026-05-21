@@ -161,9 +161,7 @@ Primary Metric: Patient-Reported Communication Quality
 
   Safety Metric: Factual Accuracy Retention Rate
 
-  LLM-rewritten messages must preserve the factual content of the original clinician message. Factual Accuracy Retention Rate is defined as the percentage of medical facts from the original message retained accurately in the rewritten version, as well as the percentage of medical facts from the rewritten message derived accurately from the original message.
-
-  Target: ≥[X]% (threshold to be determined in consultation with clinical stakeholders) - Abby to read through the papers
+  LLM-rewritten messages must preserve the factual content of the original clinician message. This is ensured through maintaining a Human-in-the-Loop workflow, where the clinician maintains responsibility of final factual accuracy. Factual accuracy should be maintained such that the clinicians do not need to spend excessive time correcting mistakes from the tool (see time constraint below).
 
   Operational Constraint: Clinician Workflow Time
 
@@ -292,7 +290,7 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
     - **Alter the clinical meaning, urgency, or instructions** conveyed by the user's input.
   - The tool writes in first-person, as the user.
   - The tool uses accessible language in any wording it adds: short sentences and common words. The tool does not introduce medical jargon, but it preserves the user's medical content (including any terms or explanations the user wrote) verbatim — it does not add, simplify, or expand on the user's medical wording.
-  - The drafted message does not indicate that AI was used. Disclosure of AI involvement is a separate feature, to be designed and placed outside the drafted message itself (e.g., portal-level notice, settings, or policy). Where exactly disclosure lives is an open group decision.
+  - The drafted message does not indicate that AI was used. Disclosure of AI involvement is a separate feature, to be designed and placed appropriately within the tool once integrated with 1177, to meet 1177's desired disclosure policies.
   - The tool ignores everything in the user's input non-medical information except patient personal context, personal references, and moderate tone calibration (i.e., the tool may slightly soften or warm tone based on patient context, but never change content).
   - The tool's tone is warm and empathetic while remaining professional. It is respectful, free of slang or casual familiarity, and appropriate for clinical correspondence. Empathy is expressed through acknowledgment and care, not informality.
 
