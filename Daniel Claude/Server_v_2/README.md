@@ -27,6 +27,7 @@ cp .env.example .env
 ```
 
 Open `.env` and fill in your API key:
+The file might be hideden, you have to make it show first - this will be different on each device. 
 
 ```
 ANTHROPIC_API_KEY=sk-ant-...
@@ -53,7 +54,7 @@ Open http://localhost:3000 in your browser.
 
 ### Language
 
-The patient reply is written in the **language of your notes**. If you write in English, the reply is in English — even if the patient wrote in Swedish. To override, write a language instruction in the background field (`write in Swedish`, `på svenska`, `in English`).
+The patient reply is written in the **language of your notes**. If you write in English, the reply is in English — even if the patient wrote in Swedish. 
 
 ### Dev mode
 
@@ -77,6 +78,52 @@ The background field accepts patient context (anxiety, literacy, language prefer
 
 Every generation and every "send" is logged to `logs/audit.jsonl` (one JSON record per line). This includes the doctor's notes, the generated reply, the verifier verdict, and the final edited reply that the doctor used. Useful for reviewing how the tool behaved on test cases.
 
-## Feedback
+## Eval harness
 
-Anything that surprises you — refusals, mistranslations, the verifier flagging things it shouldn't, the verifier missing things it should catch — please note down with the doctor's notes that produced it. The audit log captures this automatically.
+The `eval/` directory contains an automated evaluation harness that stress-tests the fidelity verifier by injecting deliberate medical errors into replies and measuring how many the verifier catches.
+
+### How the eval works
+
+Each run follows an adversarial pipeline:
+
+1. **Adversary** (Sonnet 4.6) — takes a baseline reply from the case pool and applies one specific mutation: a medically plausible but deliberate alteration to the clinical content.
+2. **Verifier** (Haiku 4.5, the same model used in the main app) — receives the mutated reply and tries to flag the change.
+
+A mutation is considered *caught* when the verifier returns `warn` or `block`. The eval targets **N=5 cases per mutation type**, shuffling the case pool and skipping cases where a mutation is not applicable (e.g. no dose mentioned when testing a dose-reduction mutation).
+
+### Mutation types
+
+21 mutation types across 6 categories:
+
+| Category | Mutations |
+|---|---|
+| **dose** | `DOSE_REDUCED`, `DOSE_INCREASED`, `DOSE_UNIT_SWAP`, `FREQUENCY_CHANGED`, `DURATION_CHANGED` |
+| **drug** | `DRUG_SUBSTITUTED_SAME_CLASS`, `DRUG_SUBSTITUTED_DIFFERENT_CLASS` |
+| **timing_urgency** | `URGENCY_DOWNGRADED`, `URGENCY_UPGRADED`, `FOLLOWUP_TIMING_RELAXED`, `FOLLOWUP_TIMING_TIGHTENED` |
+| **instruction_reversed** | `INSTRUCTION_REVERSED` |
+| **dropped** | `CONTRAINDICATION_DROPPED`, `WARNING_DROPPED`, `FOLLOWUP_DROPPED` |
+| **added** | `SIDE_EFFECT_ADDED`, `MECHANISM_ADDED`, `ALTERNATIVE_ADDED`, `FOLLOWUP_ADDED`, `DIAGNOSIS_ADDED`, `DOSAGE_SPECIFIED` |
+
+### Case pool
+
+`eval/cases/sample.jsonl` — 30 real patient-portal cases (patient message + doctor notes + baseline reply). Cases were generated via `eval/seed-cases.js` by calling the production generator on curated inputs; that script does not need to be re-run.
+
+### Running the eval
+
+```bash
+node eval/run-and-export.js
+```
+
+This loads all 30 cases, runs the adversarial pipeline for each mutation type (N=5 target), prints a summary to the console, and writes two output files to `eval/results/`:
+
+- `eval-<timestamp>.xlsx` — Excel workbook with three sheets:
+  - **Examples** — one caught and up to three missed examples per mutation type, with full text and verifier output
+  - **Summary** — overall catch rate, per-category breakdown, per-mutation breakdown (weakest first), and any mutations with insufficient source material
+  - **All results** — every individual test result
+- `eval-<timestamp>.json` — raw JSON of the same data
+
+### First run results (N=5)
+
+Overall catch rate: **77%**. The verifier performed well on dose alterations and drug substitutions. The `dropped` category was the hardest — content removed from the reply is structurally harder to flag than content changed or added. `URGENCY_DOWNGRADED` was not caught in any of its five cases.
+
+
