@@ -275,14 +275,13 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 **Must Have** — *Non-negotiable for a functioning MVP*
 - The user can write a response manually or choose to activate the tool.
 - The tool allows the user to input medical information as well as non-medical background information.
-- The tool's output contains only the response to the patient. It does not include: meta-commentary, preambles or sign-offs from the tool itself, headers or section labels, explanations
-  ▎ of what the tool changed, alternative phrasings, or notes to the user.
+- The tool's output contains only the response to the patient. It does not include: meta-commentary, preambles or sign-offs from the tool itself, headers or section labels, explanations of what the tool changed, alternative phrasings, or notes to the user.
 - The tool generates a response in the same language that the medical information was provided in.
 - The tool does not engage with the user (for example, to ask clarifying questions or discuss the input information) prior to generating a response.
 - The tool presents its output as an editable draft. The user reviews and may freely edit the draft before any sending action; the tool itself does not send messages on the user's behalf (see Won't-Have)
 - Content requirements:
   - The tool edits the user's provided information to form a response to the patient in complete sentences.
-  - The response has a greater level of empathy than the user's provided information alone, as judged by human raters against a rubric (rubric to be defined; see §1.4).
+  - The response has a greater level of empathy than the user's provided information alone, as judged by human raters against a definition of empathy: "Empathy is the ability to understand and share other people’s feelings"
   - The tool preserves the user's medical content with full fidelity. Specifically, the tool does not:
     - **Add** medical advice, claims, or information not present in the user's input.
     - **Remove or obfuscate** any of the user's medical advice or information.
@@ -319,7 +318,7 @@ To preserve medical accuracy, the tool employs a multi-layer LLM architecture in
 -->
 
 Data Privacy & Security
-  - TBD: All patient data and clinician input must be processed in an environment that complies with GDPR, the Swedish Patient Data Act (Patientdatalagen, PDL), and the NIS2 Directive.
+  - All patient data and clinician input must be processed in an environment that complies with GDPR, the Swedish Patient Data Act (Patientdatalagen, PDL), and the NIS2 Directive.
   - The tool must not store, log, or carry over patient information between activations. Inputs are discarded once the draft is returned to the clinician.
   - For real-world deployment (post-MVP), the LLM must run locally or in an environment that meets Swedish healthcare data-handling requirements. 
   - The tool must not be able to construct or retain a profile of any patient across sessions.
