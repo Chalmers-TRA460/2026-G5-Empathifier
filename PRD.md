@@ -352,10 +352,10 @@ Data Privacy & Security
   Claude Code) understand the technical landscape you are considering.
 -->
 
-- **Platform:** [iOS / Android / Web / Cross-platform / TBD]
+- **Platform:** Web
 - **Key Integrations:** APIs of LLMs for message generations and multi-layer LLM checks
-- **Candidate Tech Stack:** [SpeziVibe, Swift/Kotlin, React, etc. / TBD]
-- **Infrastructure:** [Cloud provider, on-premise, hybrid / TBD]
+- **Candidate Tech Stack:** SpeziVibe
+- **Infrastructure:** Anthropic's AWS Cloud 
 
 ---
 
